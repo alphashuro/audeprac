@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+    <name>JDefender</name>
+   <!-- The following elements are optional and free of formatting conttraints -->
+   <creationDate>2007/11/23</creationDate>
+   <author>MightyExtensions</author>
+   
+   <license>GPL</license>
+    <authorEmail>support@mightyextensions.com</authorEmail>
+    <authorUrl>www.mightyextensions.com</authorUrl>
+    <version>3.1 Build 7770</version>
+   <!-- The description is optional and defaults to the name -->
+   <description>Web Site Security Component. Protects your site from different types of attacks</description>
+   <install>
+      <sql>
+         <file driver="mysql" charset='utf8'>sql/install.mysql.utf8.sql</file>
+      </sql>
+   </install>
+   <uninstall>
+      <sql>
+         <file driver="mysql"  charset='utf8'>sql/uninstall.mysql.utf8.sql</file>
+      </sql>
+   </uninstall>
+   <administration>
+      <!-- Administration Menu Section -->
+      <menu img='components/com_jdefender/images/toolbar/defender.png'>.Mighty Defender</menu>
+      <submenu>
+          <menu controller="log" img='components/com_jdefender/images/log16.gif'>Show log</menu>
+          <menu controller="block" img='components/com_jdefender/images/block_list16.gif'>Block list</menu>
+          <menu controller="scan" img='components/com_jdefender/images/toolbar/icon-16-scan.png'>Scanner</menu>
+          <menu controller="configuration" img='config.png'>Configurations</menu>
+		  <menu link="option=com_jdefender&amp;task=support" img="help">Support</menu>
+
+       </submenu>
+      <!-- Administration Main File Copy Section -->
+      <!-- Note the folder attribute: This attribute describes the folder -->
+      <!-- to copy FROM in the package to install therefore files copied -->
+      <!--  in this section are copied from /admin/ in the package -->
+      <files folder="admin">
+      <!-- Site Main File Copy Section -->
+         <filename>admin.jdefender.php</filename>
+         <filename>controller.php</filename>
+         <filename>xajax.php</filename>
+         <filename>index.html</filename>
+		 <filename>params.xml</filename>
+				 <folder>controllers/</folder>
+				 <folder>models/</folder>
+				 <folder>tables/</folder>
+				 <folder>views/</folder>
+				 <folder>xajax/</folder>
+				 <folder>images/</folder>
+				 <folder>css/</folder>
+				 <folder>sql/</folder>
+				 <folder>elements/</folder>
+				 <folder>helpers/</folder>
+				 <folder>js/</folder>
+				 <folder>lib/</folder>
+      </files>
+		<languages folder="admin/languages">
+  			<language tag="en-GB">en-GB.com_jdefender.ini</language>
+    	</languages>
+   </administration>
+</install>

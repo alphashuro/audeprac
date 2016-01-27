@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config type="validator" version="1.0.0">
+	<params group="file_integrity" addpath="/administrator/components/com_jdefender/elements">
+		<param name="file_integrity_property_check" label="File attributes" type="jdenhancedlist" multiple="1" size="8">
+			<option value="ctime">Ctime</option>
+			<option value="mtime">Mtime</option>
+			<option value="gid">GID</option>
+			<option value="uid">UID</option>
+			<option value="hash_md">MD5 hash</option>
+		</param>
+		<param name="file_integrity_on_bad_file" label="Changed/New files" type="list" description="Action to perform when the changed/new files are found">
+			<option value="none">Only log</option>
+			<option value="block">Block Execution</option>
+<!--			<option value="quarantine">Quarantine</option>-->
+		</param>
+	</params>
+	
+	<params group="permission">
+		<param name="permission_max_file_permission" label="Files" type="text" default="644" description="The files with permission higher than this will be reported" />
+		<param name="permission_max_dir_permission" label="Directories" type="text" default="755" description="The directories with permission higher than this will be reported" />
+		<param name="permission_on_bad_file" label="Bad permissions" type="list" description="Action to perform when the files/folders with bad permissions are found">
+			<option value="none">Only log</option>
+			<option value="fix">Fix if possible</option>
+<!--			<option value="quarantine">Quarantine</option>-->
+		</param>
+	</params>
+	
+	<params group="php">
+		<param name="php_scan_jexec" label="Basic check" type="radio" default="1" description="Scan for defined(_JEXEC) or die() directive">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="php_scan_bad_functions" label="Bad function check" type="radio" default="1" description="Scan for dangerous functions">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<!-- param name="php_scan_bad_code" label="Bad code check" type="radio" default="1" description="Scan for bad code">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param-->
+		<param name="php_on_bad_file" label="Found issues" type="list" description="Action to perform when issues are found">
+			<option value="none">Only log</option>
+			<option value="fix">Fix (if possible)</option>
+			<option value="block">Block Execution</option>
+<!--			<option value="quarantine">Quarantine</option>-->
+		</param>
+	</params>
+	
+	<params group="folder_safety">
+		<param name="folder_safety_index_on_bad_file" label="Missing index.html" type="list" description="Action to perform when folders without index.html are found" default="fix">
+			<option value="none">Only log</option>
+			<option value="fix">Fix</option>
+		</param>
+		<param name="folder_safety_index_contents" label="Index.html contents" type="textarea" cols="20" rows="5" default="&lt;!DOCTYPE HTML PUBLIC &quot;-//IETF//DTD HTML 2.0//EN&quot;&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Forbidden&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;" />
+	</params>
+</config>

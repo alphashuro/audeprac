@@ -1,0 +1,94 @@
+@CHARSET "UTF-8";
+
+.icon-16-scan {
+  background-image: url( ../images/toolbar/icon-16-scan.png );
+  background-repeat: no-repeat;
+}
+
+.icon-32-scan {
+  background-image: url( ../images/toolbar/icon-32-scan.png );
+  background-repeat: no-repeat;
+}
+
+.icon-48-scan {
+  background-image: url( ../images/toolbar/icon-48-scan.png );
+  background-repeat: no-repeat;
+}
+
+.icon-32-log {
+  background-image: url( ../images/toolbar/icon-32-log.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-48-log {
+  background-image: url( ../images/toolbar/icon-48-log.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-32-ignore {
+  background-image: url( ../images/toolbar/icon-32-ignore.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-48-ignore {
+  background-image: url( ../images/toolbar/icon-48-ignore.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-32-fix {
+  background-image: url( ../images/toolbar/icon-32-fix.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-48-fix {
+  background-image: url( ../images/toolbar/icon-48-fix.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-32-lock {
+  background-image: url( ../images/toolbar/icon-32-lock.png );
+  background-repeat: no-repeat;
+}
+
+.icon-48-lock {
+  background-image: url( ../images/toolbar/icon-48-lock.png );
+  background-repeat: no-repeat;
+}
+
+.icon-32-unlock {
+  background-image: url( ../images/toolbar/icon-32-unlock.png );
+  background-repeat: no-repeat;
+}
+
+.icon-48-unlock {
+  background-image: url( ../images/toolbar/icon-48-unlock.png );
+  background-repeat: no-repeat;
+}
+
+.icon-16-ignore {
+  background-image: url( ../images/toolbar/icon-16-ignore.gif );
+  background-repeat: no-repeat;
+}
+
+.icon-16-log {
+  background-image: url( ../images/toolbar/icon-16-log.gif );
+  background-repeat: no-repeat;
+}
+.icon-16-block_list {
+  background-image: url( ../images/toolbar/icon-16-lock.png );
+  background-repeat: no-repeat;
+}
+
+.icon-16-new {
+  background-image: url( ../images/toolbar/icon-16-new.png );
+  background-repeat: no-repeat;
+}
+
+.icon-16-edit {
+	background-image: url( ../images/toolbar/icon-16-new.png );
+  	background-repeat: no-repeat;
+}
+
+.icon-48-blocklist { 
+	background-image:url(../images/icon-48-block_list.gif);
+}

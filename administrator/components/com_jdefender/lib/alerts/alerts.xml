@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config type="alerts" version="1.0.0">
+	<params group="jabber" addpath="/administrator/components/com_jdefender/elements">
+		<param name="alerts_jabber_enabled" label="Enable Jabber Alerts" type="radio" description="Enable Jabber Alerts" default="0">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="alerts_jabber_username" label="Jabber username" type="text" description="Jabber Username" />
+		<param name="alerts_jabber_password" label="Password" type="text" description="Jabber Account Password" />
+		<param name="alerts_jabber_server" label="Jabber server" type="text" description="Jabber Server" default="jabber.org" />
+		<param name="alerts_jabber_destination" label="Accounts to inform" type="textarea" description="Comma separated list of accounts that should receive alerts" cols="30" rows="5" />
+	</params>
+	
+	<params group="mail">
+		<param name="alerts_mail_enabled" label="Enable Mail Alerts" type="radio" description="Enable Mail Alerts" default="0">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="alerts_mail_subject" label="Email Subject" type="text" description="" default="MightyDefender Alert" size="30" />
+		<param name="alerts_mail_destination" label="Emails" type="textarea" description="Comma separated list of emails that will receive alerts" cols="30" rows="5" />
+	</params>
+</config>

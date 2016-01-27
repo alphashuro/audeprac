@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config type="validator" version="1.0.0">
+	<params group="injection">
+		<param name="php_scan_jexec" label="Basic check" type="radio" default="1" description="Scan for defined(_JEXEC) or die() directive">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="php_scan_bad_functions" label="Bad function check" type="radio" default="1" description="Scan for dangerous functions">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<!-- param name="php_scan_bad_code" label="Bad code check" type="radio" default="1" description="Scan for bad code">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param-->
+		<param name="php_on_bad_file" label="Found issues" type="list" description="Action to perform when issues are found">
+			<option value="none">Only log</option>
+			<option value="fix">Fix (if possible)</option>
+			<option value="block">Block Execution</option>
+<!--			<option value="quarantine">Quarantine</option>-->
+		</param>
+	</params>
+</config>

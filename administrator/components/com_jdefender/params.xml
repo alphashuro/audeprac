@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config type="component" version="1.0.0">
+	<params group="SQL_injection_scanner">
+		<param name="sql_keywords" type="textarea"  cols="25" rows="8" label="SQL Injection Patterns" default="/delete\s+from/iU&lt;br /&gt;/^d+ and(.+)/iU&lt;br /&gt;/select(.+)\s+from/iU&lt;br /&gt;/insert\s+into/iU" description="Regular exressions used to scan SQL injections. Do not modify unless you are sure" />
+		<param name="sql_exceptions" type="textarea"  cols="25" rows="8" label="SQL Injection Exceptions" default="" description="Variables that wont't be scanned for SQL injection patterns" />
+		<param name="dummy_sql_ex" label="Add Exception" target="paramssql_exceptions" type="exceptionadder" default="" />
+	</params>
+	
+	<params group="PHP_injection_scanner">
+		<param name="php_keywords" cols="25" rows="8" type="textarea" label="PHP Injection Patterns" default="/^\.\.\//iU&lt;br /&gt;/^\.\//iU&lt;br /&gt;/^\//iU&lt;br /&gt;/\/passwd/iU&lt;br /&gt;/^[a-z-.]+.[a-z]{2,3}\//iU&lt;br /&gt;/\[URL=http(.*)\]/iU"  description="Regular exressions used to scan PHP injections. Do not modify unless you are sure" />
+		<param name="php_exceptions" cols="25" rows="8" type="textarea" label="PHP Injection Exceptions" default="*::breadcrumbs" description="Variables that wont't be scanned for PHP injection patterns" />
+		<param name="dummy_php_ex" label="Add Exception" target="paramsphp_exceptions" type="exceptionadder" default="" />
+	</params>
+	
+	<params group="injection_protection">
+		<param name="injection_scan" type="radio" default="1" label="Enable" description="Scan for PHP and SQL injections">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="file_scan" type="radio" default="1" label="Scan uploaded files" description="Scan for executable file uploads">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="injection_alert" type="radio" default="1" label="Alert Attacks" description="Alert admin when attack is detected. Alerts can be configured in appropriate configuration section">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="injection_reject" type="radio" default="1" label="Stop Attacks" description="Stop execution and show block page to attacker">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="injection_block_login" type="radio" label="Block user (if logged in)" default="0" description="Add attacker user ID to block list">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>		
+		<param name="injection_block_ip" type="radio" label="Block IP" description="Add attacker IP address to block list" default="0">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+	
+	<params group="flood_protection" addpath="/administrator/components/com_jdefender/elements">
+		<param name="flood_scan" type="radio" default="1" label="Enable" description="Scan for flood attempts">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="flood_alert" type="radio" default="1" label="Alert Attacks" description="Alert admin when attack is detected. Alerts can be configured in appropriate configuration section">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="flood_reject" type="radio" default="1" label="Stop Attacks" description="Stop execution and show block page to attacker">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="flood_block_login" type="radio" default="0" label="Block user (if logged in)" description="Add attacker user ID to block list">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>		
+		<param name="flood_block_ip" type="radio" default="0" label="Block IP" description="Add attacker IP address to block list">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param type="spacer" default="Flood conditions" />
+		<param name="flood_condition1" label="Condition 1" type="jdfloodoption" selectable="0" time_measure="seconds" default_queries="25" default_time="1" />
+		<param name="flood_condition2" label="Condition 2" type="jdfloodoption" selectable="1" time_measure="minutes" default_queries="0" default_time="0" />
+		<param name="flood_condition3" label="Condition 3" type="jdfloodoption" selectable="1" time_measure="hours" default_queries="0" default_time="0" />
+	</params>
+	
+	<params group="scan_settings">
+		<!-- <param name="scan_directories" label="Directories" type="textarea" cols="25" rows="5" default="/" description="Enter directories relative to joomla root" /> -->
+		<param name="scan_file_patterns" label="Files filter" type="textarea" cols="25" rows="5" description="Files to scan" default="*.php&lt;br /&gt;*.js&lt;br /&gt;*.css&lt;br /&gt;*.html" />
+		<param name="scan_excluded_directories" label="Excluded Directories" type="textarea" cols="25" rows="5" description="Enter directories relative to joomla root" default="/cache&lt;br /&gt;/logs&lt;br /&gt;/administrator/cache&lt;br /&gt;/administrator/backup&lt;br /&gt;/tmp" />
+		<param name="scan_excluded_directory_patterns" label="Excluded Directory Patterns" type="textarea" cols="25" rows="5" description="Directory name patterns to skip" default=".svn&lt;br /&gt;.CVS&lt;br /&gt;.*" />
+	</params>
+	
+	<params group="spam_protection">
+		<param name="spam_enable" type="radio" default="1" label="Enable" description="Enable spam protection. Verify IP addresses of clients connecting to your website against the Project Honey Pot database (http://www.projecthoneypot.org)">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="spam_key" type="text" default="" size="25" label="API Key" description="Your http:BL API key from Project Honey Pot (http://www.projecthoneypot.org). Spam protection won't work without valid API key" />
+		<param name="spam_seek" type="jdenhancedlist" default="1" label="Detect Spam Activity" description="Stop IPs Listed As Suspicious" multiple="1" size="3">
+			<option selected="1" value="1">Detect Suspicious</option>
+			<option selected="1" value="2">Harvesters</option>
+			<option selected="1" value="4">Comment Spammers</option>
+		</param>
+		
+		<param name="spam_block" type="radio" default="1" label="Stop Spam Activity" description="Stop detected spam activity">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		
+		<param name="spam_alert" type="radio" default="1" label="Alert Attacks" description="Alert admin when spammer activity is detected. Alerts can be configured in appropriate configuration section">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="spam_block_login" type="radio" default="0" label="Block user (if logged in)" description="Add attacker user ID to block list">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>		
+		<param name="spam_block_ip" type="radio" default="0" label="Block IP" description="Add attacker IP address to block list">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		
+		<param type="spacer" />
+		
+		<param name="spam_age" type="text" default="30" size="25" label="Age Threshold" description="If the verified IP hasn't been active for a period of time longer than the threshold it will be regarded as harmless." />
+		<param name="spam_threat" type="text" default="25" size="25" label="Threat Threshold" description="The score is a number between 0 and 255, where 0 is no threat at all and 255 is extremely harmful. IP address with a score greater than the given number will be regarded as harmful." />
+		
+	</params>
+	
+	<params group="other_settings">
+		<param label="Date Format" name="other_date_format" type="list" default="%A, %d %B %Y" description="Date format">
+			<option value="%A, %d %B %Y">Tuesday, 15 April 2010</option>
+			<option value="%A, %d %B %Y %H:%M">Tuesday, 15 April 2010 23:59</option>
+			<option value="%d %B %Y">15 April 2010</option>
+			<option value="%d %b %Y">15 Apr 2010</option>
+			<option value="%d.%m.%y">15.12.10</option>
+			<option value="%m.%d.%y">12.15.10</option>
+			<option value="%m-%d-%y">15-12-10</option>
+			<option value="%d-%m-%y">12-15-10</option>
+			<option value="%m/%d/%y">15/12/10</option>
+			<option value="%d/%m/%y">12/15/10</option>
+		</param>
+	</params>
+<!--	<params group="system_directories">-->
+<!--		<param name="dir_quarantine" type="text" size="40" label="Quarantine" default="administrator/backups/quarantine" description="Directory to move quarantined files. Enter absolute path" />-->
+<!--	</params>-->
+</config>
